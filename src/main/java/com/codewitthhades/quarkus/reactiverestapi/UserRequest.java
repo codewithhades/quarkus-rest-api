@@ -1,0 +1,25 @@
+package com.codewitthhades.quarkus.reactiverestapi;
+
+class UserRequest {
+
+    private String name;
+    private String surname;
+
+    //For Jackson
+    private UserRequest() {
+    }
+
+    UserRequest(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+}
