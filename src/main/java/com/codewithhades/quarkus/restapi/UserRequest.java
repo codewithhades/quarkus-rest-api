@@ -1,32 +1,24 @@
-package com.codewitthhades.quarkus.reactiverestapi;
+package com.codewithhades.quarkus.restapi;
 
-import java.util.UUID;
+public class UserRequest {
 
-class User {
-
-    private String id;
     private String name;
     private String surname;
 
-    //For Jackson
-    private User() {
+    private UserRequest() {
     }
 
-    public User(String name, String surname) {
-        this.id = UUID.randomUUID().toString();
+    public UserRequest(String name, String surname) {
         this.name = name;
         this.surname = surname;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String
+                                name) {
         this.name = name;
     }
 
@@ -37,4 +29,5 @@ class User {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
 }

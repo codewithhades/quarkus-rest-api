@@ -1,4 +1,4 @@
-package com.codewitthhades.quarkus.reactiverestapi;
+package com.codewithhades.quarkus.restapi;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -24,7 +24,7 @@ public class UsersResource {
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(@QueryParam("id") String id) {
+    public Response getUser(@PathParam("id") String id) {
         return users.stream()
                 .filter(user -> user.getId().equals(id))
                 .findFirst()
@@ -33,6 +33,7 @@ public class UsersResource {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addUser(UserRequest userRequest) {
         User user = new User(userRequest.getName(), userRequest.getSurname());
@@ -42,8 +43,9 @@ public class UsersResource {
 
     @Path("/{id}")
     @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateUser(@QueryParam("id") String id, UserRequest userRequest) {
+    public Response updateUser(@PathParam("id") String id, UserRequest userRequest) {
         return users.stream()
                 .filter(user -> user.getId().equals(id))
                 .findFirst()
@@ -59,7 +61,7 @@ public class UsersResource {
     @Path("/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteUser(@QueryParam("id") String id) {
+    public Response deleteUser(@PathParam("id") String id) {
         User userToDelete = users.stream()
                 .filter(user -> user.getId().equals(id))
                 .findFirst()
