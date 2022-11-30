@@ -12,18 +12,9 @@ A REST API is an application programming interface that follows the REST archite
 
 ## Technical requirements
 
-- [Maven](https://maven.apache.org/), for project management
-- A [JDK](https://www.oracle.com/java/technologies/downloads). This is example is built on version 18
+The only requirement is that you have a running Quarkus application with Rest Easy API. If you need some help at setting it up you can check how [in this example](https://github.com/codewithhades/quarkus-basic-setup).
 
-## How to set up the project
-
-First we need to create a new project and add the [pom.xml](pom.xml) with the required dependencies and plugins
-  - quarkus-resteasy - _to import Rest Easy API implementation_
-  - quarkus-resteasy-jackson - _for the API mapping of the objects (can be quarkus-resteasy-json too)_
-  - quarkus-maven-plugin - _The Maven's plugin for Quarkus compilation_
-  - quarkus-junit5 - _The Quarkus Junit library for testing_
-  - rest-assured - _For API testing_
-  - maven-surefire-plugin - _a Maven's plugin to run the tests upon packaging_
+On top of this we are going to need the _quarkus-resteasy-jackson_ library for object mapping.
 
 ## How to create the REST API
 
@@ -42,18 +33,11 @@ REST API methods inherit the base REST API path and can optionally concat their 
 @Produces(MediaType.APPLICATION_JSON)
 public Response getUser(@PathParam("id") String id) {...}
 ````
-Add also the [application.properties](src/main/resources/application.properties) to specify a context path such as _/app_
-
 We will also add a [UsersResourceTest](src/test/java/com/codewithhades/quarkus/restapi/UsersResourceTest.java) in order to check that the REST API behaves as expected.
 
-## How to run the Quarkus application
+## How to run it
 
-Use Maven to package the JAR (and run the test), and then run the JAR with Java from a console
-````bash
-mvn clean package  
-java -jar target/quarkus-app/quarkus-run.jar
-````
-Once your Quarkus application is running you can operate the REST API by calling it from a terminal
+Once your SpringBoot application is running you can operate the REST API by calling it from a terminal
 
 ````bash
 # To add an users
