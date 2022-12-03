@@ -37,7 +37,7 @@ We will also add a [UsersResourceTest](src/test/java/com/codewithhades/quarkus/r
 
 ## How to run it
 
-Once your SpringBoot application is running you can operate the REST API by calling it from a terminal
+Once your Quarkus application is running you can operate the REST API by calling it from a terminal
 
 ````bash
 # To add an users
