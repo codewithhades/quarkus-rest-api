@@ -12,7 +12,7 @@ A REST API is an application programming interface that follows the REST archite
 
 ## Technical requirements
 
-The only requirement is that you have a running Quarkus application with Rest Easy API. If you need some help at setting it up you can check how [in this example](https://github.com/codewithhades/quarkus-basic-setup).
+The only requirement is that you have a running Quarkus application with the Rest Easy API module. If you need some help at setting it up you can check how [in this example](https://github.com/codewithhades/quarkus-basic-setup).
 
 On top of this we are going to need the _quarkus-resteasy-jackson_ library for object mapping.
 
